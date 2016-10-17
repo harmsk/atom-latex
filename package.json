@@ -1,7 +1,7 @@
 {
-  "name": "make-latex",
+  "name": "latex",
   "version": "0.38.0",
-  "description": "Compile LaTeX documents from within Atom with make.",
+  "description": "Compile LaTeX documents from within Atom with make. Fork of latex package.",
   "keywords": [
     "make",
     "tex",
