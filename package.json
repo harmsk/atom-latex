@@ -1,8 +1,9 @@
 {
-  "name": "latex",
+  "name": "make-latex",
   "version": "0.38.0",
-  "description": "Compile LaTeX documents from within Atom.",
+  "description": "Compile LaTeX documents from within Atom with make.",
   "keywords": [
+    "make",
     "tex",
     "latex",
     "latexmk",
@@ -11,7 +12,7 @@
   ],
   "license": "MIT",
   "main": "./lib/main",
-  "repository": "https://github.com/thomasjo/atom-latex",
+  "repository": "https://github.com/harmsk/atom-make-latex",
   "dependencies": {
     "dbus-native": "^0.2.0",
     "etch": "0.7.1",

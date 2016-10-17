@@ -1,14 +1,16 @@
-# LaTeX package
+# Make LaTeX package
 [![Build Status][travis svg]][travis]
 [![Windows Build Status][appveyor svg]][appveyor]
 [![Dependency Status][dependency svg]][dependency]
 [![devDependency Status][devDependency svg]][devDependency]
 
-Compile LaTeX or [knitr] documents from within Atom.
+Compile LaTeX or [knitr] documents from within Atom with make.
+
+This is a fork of the [atom-latex][atom-latex] package with suport for make.
+See https://github.com/thomasjo/atom-latex/pull/262
 
 ## Installing
-Use the Atom package manager and search for "latex", or run `apm install latex`
-from the command line.
+Run `apm install harmsk/atom-make-latex` from the command line.
 
 ## Prerequisites
 ### TeX distribution
@@ -74,6 +76,7 @@ This package has support for various "magic" TeX comments in the form of
 | `jobnames`         | space separated names, e.g. `foo bar`         | Control the number and names of build jobs.       |
 | `output_directory` | directory path, e.g. `build`                  | Specify the output directory that should be used. |
 | `producer`         | `dvipdf`, `dvipdfmx`, `xdvipdfmx` or `ps2pdf` | Override the PDF producer                         |
+| `builder`          | `latexmk`, `texify`, or `make`                | Override the builder                              |
 | `program`          | `pdflatex`, `lualatex`, etc.                  | Override the LaTeX engine to use for build.       |
 | `root`             | file path, e.g. `../file.tex`                 | Specify the root file that should be built.       |
 
@@ -90,6 +93,7 @@ some important features.
 Any and all help is greatly appreciated!
 
 <!--refs-->
+[atom-latex]: https://github.com/thomasjo/atom-latex
 [appveyor svg]: https://ci.appveyor.com/api/projects/status/oc2v06stfwgd3bkn/branch/master?svg=true
 [appveyor]: https://ci.appveyor.com/project/thomasjo/atom-latex/branch/master
 [Configuration]: https://github.com/thomasjo/atom-latex/wiki/Configuration
