@@ -1,31 +1,32 @@
 /** @babel */
 
-import '../spec-bootstrap'
 import DefaultLogger from '../../lib/loggers/default-logger'
 import werkzeug from '../../lib/werkzeug'
-import Latex from '../../lib/latex'
+import helpers from '../spec-helpers'
 
 describe('DefaultLogger', () => {
   let logger
 
   beforeEach(() => {
+    waitsForPromise(() => {
+      return helpers.activatePackages()
+    })
     logger = new DefaultLogger()
-    global.latex = new Latex()
   })
 
   describe('showErrorMarkersInEditor', () => {
     it('verifies that only messages that have a range and a matching file path are marked', () => {
       const editor = { getPath: () => 'foo.tex' }
       const messages = [{
-        type: 'Error',
+        type: 'error',
         range: [[0, 0], [0, 1]],
         filePath: 'foo.tex'
       }, {
-        type: 'Warning',
+        type: 'warning',
         range: [[0, 0], [0, 1]],
         filePath: 'bar.tex'
       }, {
-        type: 'Info',
+        type: 'info',
         filePath: 'foo.tex'
       }]
       spyOn(logger, 'addErrorMarker')
