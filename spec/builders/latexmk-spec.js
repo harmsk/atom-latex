@@ -3,7 +3,6 @@
 import helpers from '../spec-helpers'
 import path from 'path'
 import LatexmkBuilder from '../../lib/builders/latexmk'
-import _ from 'lodash'
 import fs from 'fs-plus'
 
 describe('LatexmkBuilder', () => {
@@ -42,7 +41,6 @@ describe('LatexmkBuilder', () => {
         '-file-line-error',
         '-synctex=1',
         `-r "${latexmkrcPath}"`,
-        '-pdflatex="pdflatex"',
         '-pdf',
         `"${filePath}"`
       ]
@@ -73,9 +71,14 @@ describe('LatexmkBuilder', () => {
       expect(builder.constructArgs(filePath)).toContain(expectedArg)
     })
 
-    it('adds pdflatex arguments according to package config', () => {
+    it('adds lualatex argument according to package config', () => {
       atom.config.set('latex.engine', 'lualatex')
-      expect(builder.constructArgs(filePath)).toContain('-pdflatex="lualatex"')
+      expect(builder.constructArgs(filePath)).toContain('-lualatex')
+    })
+
+    it('adds xelatex argument according to package config', () => {
+      atom.config.set('latex.engine', 'xelatex')
+      expect(builder.constructArgs(filePath)).toContain('-xelatex')
     })
 
     it('adds a custom engine string according to package config', () => {
@@ -196,11 +199,11 @@ describe('LatexmkBuilder', () => {
         // which TeX distribution is being used or which fonts are currently
         // installed.
         for (const message of messages) {
-          expect(_.some(parsedLog.messages,
+          expect(parsedLog.messages.some(
             logMessage => message.type === logMessage.type && message.text === logMessage.text)).toBe(true, `Message = ${message.text}`)
         }
 
-        expect(_.every(parsedLog.messages,
+        expect(parsedLog.messages.every(
           logMessage => !logMessage.filePath || logMessage.filePath === filePath || logMessage.filePath === subFilePath))
           .toBe(true, 'Incorrect file path resolution in log.')
 
