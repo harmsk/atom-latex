@@ -1,6 +1,6 @@
 {
   "name": "latex",
-  "version": "0.39.1",
+  "version": "0.41.0",
   "description": "Compile LaTeX documents from within Atom.",
   "keywords": [
     "make",
@@ -15,7 +15,7 @@
   "repository": "https://github.com/harmsk/atom-make-latex",
   "dependencies": {
     "dbus-native": "^0.2.0",
-    "etch": "0.7.1",
+    "etch": "0.8.0",
     "fs-plus": "^2.9.1",
     "glob": "^7.1.1",
     "lodash": "^4.13.1",
@@ -235,13 +235,16 @@
       "type": "string",
       "enum": [
         "automatic",
+        "atril",
         "evince",
         "okular",
         "pdf-view",
         "preview",
+        "shell-open",
         "skim",
         "sumatra",
         "xdg-open",
+        "x-reader",
         "custom"
       ],
       "default": "automatic",
