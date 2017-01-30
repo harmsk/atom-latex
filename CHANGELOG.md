@@ -2,6 +2,39 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.42.3] / 2017-01-25
+### Fixed
+- Added parsing of `xdvipdfmx`, `lualatex` and `xelatex` sections of file database to enable detection of output file for updated `latexmk` version. Fixes [#339](https://github.com/thomasjo/atom-latex/issues/339).
+
+## [0.42.2] / 2017-01-13
+### Fixed
+- Malformed url which prevented Okular from opening with SyncTeX support. Fixes
+  [#332](https://github.com/thomasjo/atom-latex/issues/332).
+
+## [0.42.1] / 2017-01-11
+### Fixed
+- Error upon package deactivation when build process still running.
+
+### Removed
+- Deprecated shadow DOM references.
+
+## [0.42.0] / 2017-01-02
+### Added
+- Magic comment override of `cleanExtensions`, `enableSynctex`,
+  `enableShellEscape`, `enableExtendedBuildMode` and
+  `moveResultToSourceDirectory`.
+- Output directory and job name support in knitr SyncTeX patching.
+- Support for Zathura PDF/PS viewer.
+- Override of build settings via YAML formatted build setting file.
+
+### Changed
+- Use commas as delimiters in `jobnames` magic comment.
+
+### Removed
+- Deprecated `texify` builder in favor of `latexmk` builder.
+- Unneeded `builder` magic comment.
+- `Use Master File Search` setting and algorithm in favor of `root` magic comment.
+
 ## [0.41.0] / 2016-11-17
 ### Fixed
 - Parsing of FDB files is more rigorous resulting in correct output path
@@ -541,6 +574,10 @@ minor release.
 - First release.
 
 <!--- refs --->
+[0.42.3]: https://github.com/thomasjo/atom-latex/compare/v0.42.2...v0.42.3
+[0.42.2]: https://github.com/thomasjo/atom-latex/compare/v0.42.1...v0.42.2
+[0.42.1]: https://github.com/thomasjo/atom-latex/compare/v0.42.0...v0.42.1
+[0.42.0]: https://github.com/thomasjo/atom-latex/compare/v0.41.0...v0.42.0
 [0.41.0]: https://github.com/thomasjo/atom-latex/compare/v0.40.0...v0.41.0
 [0.40.0]: https://github.com/thomasjo/atom-latex/compare/v0.39.1...v0.40.0
 [0.39.1]: https://github.com/thomasjo/atom-latex/compare/v0.39.0...v0.39.1
