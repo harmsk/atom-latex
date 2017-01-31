@@ -1,7 +1,21 @@
 **This is a fork of the [atom-latex][atom-latex] package with support for make.**
 See https://github.com/thomasjo/atom-latex/pull/262
 
-**To use, insert the TeX magic command: `% !TEX builder = make`**
+**To use:**
+1. Install this fork: `apm install harmsk/atom-make-latex`
+2. Add the TeX magic command: `% !TEX builder = make`
+   to your LaTeX document.
+3. Have a `Makefile` at the root of your project.
+
+**Your Makefile should contain the following targets:**
+
+| Command         | Makefile target |
+|:----------------|:----------------|
+| `latex:build`   | all             |
+| `latex:rebuild` | clean all       |
+| `latex:clean`   | clean           |
+
+********************************************************************************
 
 # LaTeX package
 [![Build Status][travis svg]][travis]
